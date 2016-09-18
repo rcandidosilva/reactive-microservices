@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: GROUP-SERVICE
+  cloud:
+    config:
+      uri: http://localhost:9052 
+ 

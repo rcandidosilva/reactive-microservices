@@ -1,0 +1,27 @@
+
+
+server:
+  port: ${PORT:8080}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
+
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  routes:
+    users:
+      path: /user-service/**
+      serviceId: USER-SERVICE
+    groups:
+      path: /group-service/**
+      serviceId: GROUP-SERVICE
